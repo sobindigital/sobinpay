@@ -12,7 +12,7 @@
  */
 
 import { NextResponse } from "next/server";
-import { SobinPay, calculateCrc16 } from "@sobin/pay";
+import { SobinPay, calculateCrc16 } from "@sobindigital/pay";
 
 export async function POST(req: Request) {
   try {

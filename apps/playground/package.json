@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@sobin/pay": "*",
+    "@sobindigital/pay": "*",
     "lucide-react": "^1.16.0",
     "next": "^16.4.6",
     "qrcode": "^1.5.4",

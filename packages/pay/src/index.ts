@@ -11,7 +11,7 @@
  * Copyright (c) 2026 Sobin Digital. All rights reserved.
  */
 
-export * from "@sobin/core";
-export * from "@sobin/provider-payway";
-export * from "@sobin/provider-khqr";
+export * from "@sobindigital/core";
+export * from "@sobindigital/provider-payway";
+export * from "@sobindigital/provider-khqr";
 export * from "./sobinpay.js";

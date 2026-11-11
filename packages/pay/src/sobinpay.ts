@@ -29,7 +29,7 @@ import {
   AbaPaymentStatus,
   AbaStatusCode,
   AbaViewType,
-} from "@sobin/provider-payway";
+} from "@sobindigital/provider-payway";
 import {
   KhqrGenerator,
   KhqrParser,
@@ -37,8 +37,8 @@ import {
   type IndividualKhqrOptions,
   type MerchantKhqrOptions,
   type ParsedKhqr,
-} from "@sobin/provider-khqr";
-import { SobinPayError } from "@sobin/core";
+} from "@sobindigital/provider-khqr";
+import { SobinPayError } from "@sobindigital/core";
 
 export interface SobinPayConfig {
   /**

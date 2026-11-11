@@ -11,7 +11,7 @@
  * Copyright (c) 2026 Sobin Digital. All rights reserved.
  */
 
-import { PaymentCurrency } from "@sobin/core";
+import { PaymentCurrency } from "@sobindigital/core";
 
 export type { PaymentCurrency };
 

@@ -862,7 +862,7 @@ export function PlaygroundTester() {
             <div className="bg-slate-950 p-3 rounded-lg border border-slate-800 font-mono text-[11px] text-slate-300 overflow-x-auto">
               <span className="text-purple-400">import</span> &#123; SobinPay &#125;{" "}
               <span className="text-purple-400">from</span>{" "}
-              <span className="text-emerald-400">&quot;@sobin/pay&quot;</span>;<br />
+              <span className="text-emerald-400">&quot;@sobindigital/pay&quot;</span>;<br />
               <span className="text-purple-400">const</span> sobin ={" "}
               <span className="text-purple-400">new</span> SobinPay(&#123; aba: &#123; merchantId, apiKey &#125; &#125;);<br />
               <span className="text-purple-400">const</span> purchase = sobin.aba.createPurchase(&#123; amount:{" "}

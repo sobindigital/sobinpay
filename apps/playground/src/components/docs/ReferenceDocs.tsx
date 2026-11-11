@@ -200,7 +200,7 @@ export function ReferenceDocs() {
           language="typescript"
           title="Safe Error Handling Pattern"
           showLineNumbers
-          code={`import { SobinPay, SobinPayError, ProviderApiError } from "@sobin/pay";
+          code={`import { SobinPay, SobinPayError, ProviderApiError } from "@sobindigital/pay";
 
 try {
   const status = await sobin.aba.checkTransaction(tranId);

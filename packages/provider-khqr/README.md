@@ -1,4 +1,4 @@
-# @sobin/provider-khqr
+# @sobindigital/provider-khqr
 
 > Official EMVCo-compliant Bakong KHQR QR Code generator, parser, and deeplink creator for **SobinPay**. Built by [Sobin Digital](https://t.me/sobindigital).
 
@@ -14,19 +14,19 @@
 
 ```bash
 # npm
-npm install @sobin/provider-khqr
+npm install @sobindigital/provider-khqr
 
 # pnpm
-pnpm add @sobin/provider-khqr
+pnpm add @sobindigital/provider-khqr
 
 # bun
-bun add @sobin/provider-khqr
+bun add @sobindigital/provider-khqr
 ```
 
 ## Quickstart
 
 ```typescript
-import { KhqrGenerator, KhqrParser, createBakongDeeplink } from "@sobin/provider-khqr";
+import { KhqrGenerator, KhqrParser, createBakongDeeplink } from "@sobindigital/provider-khqr";
 
 // 1. Generate Individual KHQR
 const qrString = KhqrGenerator.generateIndividual({

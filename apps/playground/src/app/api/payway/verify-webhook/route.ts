@@ -12,7 +12,7 @@
  */
 
 import { NextResponse } from "next/server";
-import { createHmacSha512Base64, timingSafeEqualString } from "@sobin/pay";
+import { createHmacSha512Base64, timingSafeEqualString } from "@sobindigital/pay";
 
 export async function POST(req: Request) {
   try {

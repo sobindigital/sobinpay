@@ -166,7 +166,7 @@ export function Header({
 
             {/* NPM Link */}
             <a
-              href="https://www.npmjs.com/package/@sobin/pay"
+              href="https://www.npmjs.com/package/@sobindigital/pay"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-1.5 px-2 py-1 rounded-md text-[11px] font-mono font-medium text-slate-400 hover:text-red-400 hover:bg-red-500/10 transition-colors border border-transparent hover:border-red-500/20"

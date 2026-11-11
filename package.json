@@ -8,9 +8,9 @@
     "apps/*"
   ],
   "scripts": {
-    "build:packages": "npm run build --workspace=@sobin/core && npm run build --workspace=@sobin/provider-khqr && npm run build --workspace=@sobin/provider-payway && npm run build --workspace=@sobin/pay",
+    "build:packages": "npm run build --workspace=@sobindigital/core && npm run build --workspace=@sobindigital/provider-khqr && npm run build --workspace=@sobindigital/provider-payway && npm run build --workspace=@sobindigital/pay",
     "build": "npm run build:packages && npm run build --workspace=playground",
-    "publish:packages": "npm run build:packages && npm publish --workspace=@sobin/core --access public && npm publish --workspace=@sobin/provider-khqr --access public && npm publish --workspace=@sobin/provider-payway --access public && npm publish --workspace=@sobin/pay --access public",
+    "publish:packages": "npm run build:packages && npm publish --workspace=@sobindigital/core --access public && npm publish --workspace=@sobindigital/provider-khqr --access public && npm publish --workspace=@sobindigital/provider-payway --access public && npm publish --workspace=@sobindigital/pay --access public",
     "test": "vitest run",
     "lint": "npm run --workspaces --if-present lint",
     "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\"",

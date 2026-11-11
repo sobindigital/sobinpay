@@ -40,7 +40,7 @@ export function KhqrDocs() {
           language="typescript"
           title="Generate Individual KHQR"
           showLineNumbers
-          code={`import { SobinPay } from "@sobin/pay";
+          code={`import { SobinPay } from "@sobindigital/pay";
 
 // Generate a Dynamic Individual KHQR (with specified amount & invoice)
 const qrString = SobinPay.khqr.generateIndividual({

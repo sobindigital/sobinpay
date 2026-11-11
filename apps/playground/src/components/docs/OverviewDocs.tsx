@@ -75,19 +75,19 @@ export function OverviewDocs() {
           Installation
         </h2>
         <p className="text-sm text-slate-400 leading-relaxed">
-          Install the main unified facade package <code className="text-blue-300 font-mono">@sobin/pay</code> using your preferred package manager:
+          Install the main unified facade package <code className="text-blue-300 font-mono">@sobindigital/pay</code> using your preferred package manager:
         </p>
 
-        <CodeBlock code="npm install @sobin/pay" packageTabs packageCommand="@sobin/pay" />
+        <CodeBlock code="npm install @sobindigital/pay" packageTabs packageCommand="@sobindigital/pay" />
 
         <div className="text-xs text-slate-400 space-y-2">
           <p>
             Alternatively, if you only need a specific provider, you can install individual scoped packages:
           </p>
           <ul className="list-disc list-inside space-y-1 pl-2 font-mono text-slate-300">
-            <li><code>@sobin/provider-payway</code> — Dedicated ABA PayWay client</li>
-            <li><code>@sobin/provider-khqr</code> — Dedicated Bakong KHQR generator & parser</li>
-            <li><code>@sobin/core</code> — Shared types, money math, and crypto primitives</li>
+            <li><code>@sobindigital/provider-payway</code> — Dedicated ABA PayWay client</li>
+            <li><code>@sobindigital/provider-khqr</code> — Dedicated Bakong KHQR generator & parser</li>
+            <li><code>@sobindigital/core</code> — Shared types, money math, and crypto primitives</li>
           </ul>
         </div>
       </section>
@@ -104,7 +104,7 @@ export function OverviewDocs() {
         <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-5 space-y-4">
           <div className="font-mono text-xs text-slate-300 space-y-2">
             <div className="p-3 bg-slate-950 rounded-lg border border-slate-800">
-              <span className="text-purple-400 font-bold">@sobin/pay</span> (Unified Facade)
+              <span className="text-purple-400 font-bold">@sobindigital/pay</span> (Unified Facade)
               <p className="text-slate-400 text-[11px] mt-1 font-sans">
                 Unified developer entrypoint providing <code>sobin.aba.*</code>, <code>sobin.abapay.*</code>, and <code>SobinPay.khqr.*</code>.
               </p>
@@ -112,14 +112,14 @@ export function OverviewDocs() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pl-4 border-l-2 border-slate-800">
               <div className="p-3 bg-slate-950 rounded-lg border border-slate-800">
-                <span className="text-blue-400 font-bold">@sobin/provider-payway</span>
+                <span className="text-blue-400 font-bold">@sobindigital/provider-payway</span>
                 <p className="text-slate-400 text-[11px] mt-1 font-sans">
                   Implements ABA PayWay REST & Web checkout APIs, HMAC-SHA512 hashing, status checks, close transaction, exchange rates, and RSA refunds.
                 </p>
               </div>
 
               <div className="p-3 bg-slate-950 rounded-lg border border-slate-800">
-                <span className="text-emerald-400 font-bold">@sobin/provider-khqr</span>
+                <span className="text-emerald-400 font-bold">@sobindigital/provider-khqr</span>
                 <p className="text-slate-400 text-[11px] mt-1 font-sans">
                   Implements National Bank of Cambodia EMVCo KHQR specifications, Tag-Length-Value parsing, 16-bit CRC-CCITT calculation, and deep links.
                 </p>
@@ -127,7 +127,7 @@ export function OverviewDocs() {
             </div>
 
             <div className="p-3 bg-slate-950 rounded-lg border border-slate-800 ml-4">
-              <span className="text-amber-400 font-bold">@sobin/core</span> (Shared Foundation)
+              <span className="text-amber-400 font-bold">@sobindigital/core</span> (Shared Foundation)
               <p className="text-slate-400 text-[11px] mt-1 font-sans">
                 Shared type contracts, error hierarchy (<code>SobinPayError</code>, <code>ProviderApiError</code>), timing-safe crypto, and safe money math.
               </p>
@@ -174,7 +174,7 @@ export function OverviewDocs() {
           <CodeBlock
             language="typescript"
             title="Constant-Time Signature Check"
-            code={`import { timingSafeEqualString } from "@sobin/pay";
+            code={`import { timingSafeEqualString } from "@sobindigital/pay";
 
 // Safely compares received signature without timing leakage
 const isValid = timingSafeEqualString(receivedSignature, computedSignature);`}

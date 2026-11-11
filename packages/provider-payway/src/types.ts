@@ -11,7 +11,7 @@
  * Copyright (c) 2026 Sobin Digital. All rights reserved.
  */
 
-import type { PaymentCurrency, BaseCustomerInfo, BasePaymentItem } from "@sobin/core";
+import type { PaymentCurrency, BaseCustomerInfo, BasePaymentItem } from "@sobindigital/core";
 
 export enum AbaPaymentOption {
   CARDS = "cards",

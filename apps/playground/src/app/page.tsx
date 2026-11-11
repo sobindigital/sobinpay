@@ -122,7 +122,7 @@ export default function DocsPortalPage() {
   };
 
   const copyQuickInstall = () => {
-    navigator.clipboard.writeText("npm i @sobin/pay");
+    navigator.clipboard.writeText("npm i @sobindigital/pay");
     setCopiedQuickInstall(true);
     setTimeout(() => setCopiedQuickInstall(false), 2000);
   };
@@ -192,7 +192,7 @@ export default function DocsPortalPage() {
                 <div className="flex flex-wrap items-center gap-3 pt-2">
                   <div className="flex items-center bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs font-mono text-slate-300">
                     <Terminal className="w-3.5 h-3.5 text-blue-400 mr-2" />
-                    <span>npm i @sobin/pay</span>
+                    <span>npm i @sobindigital/pay</span>
                     <button
                       onClick={copyQuickInstall}
                       className="ml-3 text-slate-400 hover:text-white transition-colors"

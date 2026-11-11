@@ -21,7 +21,7 @@ import {
   SobinPayError,
   ProviderApiError,
   PaymentCurrency,
-} from "@sobin/core";
+} from "@sobindigital/core";
 import {
   AbaPaymentOption,
   AbaPaymentStatus,

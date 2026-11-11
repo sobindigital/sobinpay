@@ -17,7 +17,7 @@ import {
   AbaPaymentOption,
   AbaPaymentStatus,
 } from "../src/index.js";
-import { createHmacSha512Base64 } from "@sobin/core";
+import { createHmacSha512Base64 } from "@sobindigital/core";
 
 describe("PayWayClient", () => {
   const credentials = {

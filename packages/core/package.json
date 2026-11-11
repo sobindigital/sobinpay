@@ -1,5 +1,5 @@
 {
-  "name": "@sobin/core",
+  "name": "@sobindigital/core",
   "version": "0.1.0",
   "description": "Core primitives, timing-safe cryptography, and money utilities for SobinPay",
   "type": "module",

@@ -57,7 +57,7 @@ export function PayWayDocs() {
           language="typescript"
           title="Initialize SobinPay Client"
           showLineNumbers
-          code={`import { SobinPay } from "@sobin/pay";
+          code={`import { SobinPay } from "@sobindigital/pay";
 
 const sobin = new SobinPay({
   aba: {
@@ -86,7 +86,7 @@ const sobin = new SobinPay({
           language="typescript"
           title="Create Purchase Session"
           showLineNumbers
-          code={`import { AbaPaymentOption, AbaViewType } from "@sobin/pay";
+          code={`import { AbaPaymentOption, AbaViewType } from "@sobindigital/pay";
 
 const purchase = sobin.aba.createPurchase({
   amount: 25.0,
@@ -180,7 +180,7 @@ const purchase = sobin.aba.createPurchase({
           language="typescript"
           title="Query Payment Status"
           showLineNumbers
-          code={`import { AbaPaymentStatus } from "@sobin/pay";
+          code={`import { AbaPaymentStatus } from "@sobindigital/pay";
 
               const status = await sobin.aba.checkTransaction("sb-n80c75123");
 

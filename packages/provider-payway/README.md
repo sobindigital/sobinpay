@@ -1,4 +1,4 @@
-# @sobin/provider-payway
+# @sobindigital/provider-payway
 
 > Enterprise ABA PayWay payment gateway provider for **SobinPay**. Supports Modal Popups, Hosted Checkout, Direct KHQR REST API, and Timing-Safe Webhooks. Built by [Sobin Digital](https://t.me/sobindigital).
 
@@ -15,19 +15,19 @@
 
 ```bash
 # npm
-npm install @sobin/provider-payway
+npm install @sobindigital/provider-payway
 
 # pnpm
-pnpm add @sobin/provider-payway
+pnpm add @sobindigital/provider-payway
 
 # bun
-bun add @sobin/provider-payway
+bun add @sobindigital/provider-payway
 ```
 
 ## Quickstart
 
 ```typescript
-import { PayWayClient, AbaPaymentOption, AbaViewType } from "@sobin/provider-payway";
+import { PayWayClient, AbaPaymentOption, AbaViewType } from "@sobindigital/provider-payway";
 
 const payway = new PayWayClient({
   merchantId: process.env.ABA_MERCHANT_ID!,

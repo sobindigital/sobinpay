@@ -41,7 +41,7 @@ export function FrameworkRecipes() {
           showLineNumbers
           code={`"use server";
 
-import { SobinPay, AbaPaymentOption, AbaViewType } from "@sobin/pay";
+import { SobinPay, AbaPaymentOption, AbaViewType } from "@sobindigital/pay";
 
 const sobin = new SobinPay({
   aba: {
@@ -73,7 +73,7 @@ export async function createCheckoutSession(amount: number) {
           title="app/api/webhooks/payway/route.ts (Webhook Route Handler)"
           showLineNumbers
           code={`import { NextResponse } from "next/server";
-import { SobinPay } from "@sobin/pay";
+import { SobinPay } from "@sobindigital/pay";
 
 const sobin = new SobinPay({
   aba: {
@@ -126,7 +126,7 @@ export async function POST(req: Request) {
           title="server.ts (Express)"
           showLineNumbers
           code={`import express from "express";
-import { SobinPay, AbaPaymentOption } from "@sobin/pay";
+import { SobinPay, AbaPaymentOption } from "@sobindigital/pay";
 
 const app = express();
 app.use(express.json());
@@ -187,7 +187,7 @@ app.listen(4000, () => console.log("Server listening on port 4000"));`}
           showLineNumbers
           code={`import { Injectable } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
-import { SobinPay } from "@sobin/pay";
+import { SobinPay } from "@sobindigital/pay";
 
 @Injectable()
 export class SobinPayService {

@@ -12,7 +12,7 @@
  */
 
 import { NextResponse } from "next/server";
-import { SobinPay } from "@sobin/pay";
+import { SobinPay } from "@sobindigital/pay";
 import QRCode from "qrcode";
 
 export async function POST(req: Request) {

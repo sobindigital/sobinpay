@@ -1,5 +1,5 @@
 {
-  "name": "@sobin/provider-payway",
+  "name": "@sobindigital/provider-payway",
   "version": "0.1.0",
   "description": "ABA PayWay payment provider implementation for SobinPay (Popup, Hosted, Direct KHQR, Webhooks)",
   "type": "module",
@@ -39,7 +39,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@sobin/core": "^0.1.0"
+    "@sobindigital/core": "^0.1.0"
   },
   "devDependencies": {
     "tsup": "^8.3.6",

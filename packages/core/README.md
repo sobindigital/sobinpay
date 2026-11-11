@@ -1,4 +1,4 @@
-# @sobin/core
+# @sobindigital/core
 
 > Core primitives, timing-safe cryptographic utilities, and money formatting for the **SobinPay** payment ecosystem. Built by [Sobin Digital](https://t.me/sobindigital).
 
@@ -14,13 +14,13 @@
 
 ```bash
 # npm
-npm install @sobin/core
+npm install @sobindigital/core
 
 # pnpm
-pnpm add @sobin/core
+pnpm add @sobindigital/core
 
 # bun
-bun add @sobin/core
+bun add @sobindigital/core
 ```
 
 ## License

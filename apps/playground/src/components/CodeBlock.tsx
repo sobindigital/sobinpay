@@ -31,7 +31,7 @@ export function CodeBlock({
   title,
   showLineNumbers = false,
   packageTabs = false,
-  packageCommand = "@sobin/pay",
+  packageCommand = "@sobindigital/pay",
 }: CodeBlockProps) {
   const [activeTab, setActiveTab] = useState<"npm" | "pnpm" | "yarn" | "bun">("npm");
   const [copied, setCopied] = useState(false);

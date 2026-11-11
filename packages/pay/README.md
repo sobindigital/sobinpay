@@ -1,8 +1,8 @@
-# @sobin/pay
+# @sobindigital/pay
 
 > Unified Multi-Provider TypeScript Payment Gateway SDK for Cambodia (ABA PayWay, Bakong KHQR) by **Sobin Digital**.
 
-[![npm version](https://img.shields.io/npm/v/@sobin/pay.svg?style=flat-square)](https://www.npmjs.com/package/@sobin/pay)
+[![npm version](https://img.shields.io/npm/v/@sobindigital/pay.svg?style=flat-square)](https://www.npmjs.com/package/@sobindigital/pay)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-100%25-blue?style=flat-square)](https://www.typescriptlang.org/)
 
@@ -10,19 +10,19 @@
 
 ```bash
 # npm
-npm install @sobin/pay
+npm install @sobindigital/pay
 
 # pnpm
-pnpm add @sobin/pay
+pnpm add @sobindigital/pay
 
 # bun
-bun add @sobin/pay
+bun add @sobindigital/pay
 ```
 
 ## Quick Start
 
 ```typescript
-import { SobinPay, AbaPaymentOption } from "@sobin/pay";
+import { SobinPay, AbaPaymentOption } from "@sobindigital/pay";
 
 // Initialize with ABA credentials
 const sobin = new SobinPay({

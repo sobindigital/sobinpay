@@ -3,10 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   transpilePackages: [
-    "@sobin/pay",
-    "@sobin/core",
-    "@sobin/provider-payway",
-    "@sobin/provider-khqr",
+    "@sobindigital/pay",
+    "@sobindigital/core",
+    "@sobindigital/provider-payway",
+    "@sobindigital/provider-khqr",
   ],
 };
 

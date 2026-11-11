@@ -1,9 +1,9 @@
 # SobinPay ⚡️
 
-[![npm version](https://img.shields.io/npm/v/@sobin/pay.svg?style=flat-square&color=3b82f6)](https://www.npmjs.com/package/@sobin/pay)
+[![npm version](https://img.shields.io/npm/v/@sobindigital/pay.svg?style=flat-square&color=3b82f6)](https://www.npmjs.com/package/@sobindigital/pay)
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![TypeScript Strict](https://img.shields.io/badge/TypeScript-Strict_100%25-blue.svg?style=flat-square)](https://www.typescriptlang.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18.0.0-brightgreen.svg?style=flat-square)](https://nodejs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-%3E%3D20.9.0-brightgreen.svg?style=flat-square)](https://nodejs.org/)
 [![Sobin Digital](https://img.shields.io/badge/Engineered_by-Sobin_Digital-orange.svg?style=flat-square)](https://t.me/sobindigital)
 
 > The modern, zero-dependency, type-safe payment engine for Cambodia. Accept **ABA PayWay** and **Bakong KHQR** in Node.js, Next.js, and Bun with clean 3-line ergonomics.
@@ -17,7 +17,7 @@ Maintained and engineered with ❤️ by **Sobin Digital**:
 
 ## 🌟 Why SobinPay?
 
-| Architectural Feature | Manual REST / cURL | Legacy Axios SDKs | **SobinPay (@sobin/pay)** |
+| Architectural Feature | Manual REST / cURL | Legacy Axios SDKs | **SobinPay (@sobindigital/pay)** |
 | :--- | :---: | :---: | :---: |
 | **Ergonomics & API Design** | ❌ Complex boilerplate | ⚠️ Single-provider methods | ⭐ **Unified multi-provider hub + standalone clients** |
 | **TypeScript Strictness** | ❌ Untyped JSON responses | ⚠️ Loose types & `any` casts | 🛡️ **100% Strict Type Safety, Zero `any`** |
@@ -33,13 +33,13 @@ Maintained and engineered with ❤️ by **Sobin Digital**:
 
 ```bash
 # Using npm
-npm install @sobin/pay
+npm install @sobindigital/pay
 
 # Using pnpm
-pnpm add @sobin/pay
+pnpm add @sobindigital/pay
 
 # Using bun
-bun add @sobin/pay
+bun add @sobindigital/pay
 ```
 
 ---
@@ -51,7 +51,7 @@ bun add @sobin/pay
 You can either use the unified multi-provider hub (`SobinPay`) or the standalone `PayWay` / `PayWayClient`:
 
 ```typescript
-import { SobinPay } from "@sobin/pay";
+import { SobinPay } from "@sobindigital/pay";
 
 const sobin = new SobinPay({
   aba: {
@@ -64,7 +64,7 @@ const sobin = new SobinPay({
 
 *Or standalone:*
 ```typescript
-import { PayWay } from "@sobin/pay";
+import { PayWay } from "@sobindigital/pay";
 
 const payway = new PayWay({
   merchantId: process.env.ABA_MERCHANT_ID!,
@@ -93,7 +93,7 @@ console.log("ABA Mobile Deeplink:", result.abapayDeeplink);
 
 #### B. Create Web Purchase (Popup or Hosted Checkout)
 ```typescript
-import { AbaPaymentOption, AbaViewType } from "@sobin/pay";
+import { AbaPaymentOption, AbaViewType } from "@sobindigital/pay";
 
 const purchase = sobin.aba.createPurchase({
   amount: 25.00,
@@ -111,7 +111,7 @@ console.log("Pre-rendered Form HTML:", purchase.formHtml);
 
 #### C. Real-Time Transaction Status Check
 ```typescript
-import { AbaPaymentStatus } from "@sobin/pay";
+import { AbaPaymentStatus } from "@sobindigital/pay";
 
 const status = await sobin.aba.checkTransaction("ORDER-12345");
 
@@ -161,7 +161,7 @@ if (verification.isValid && verification.status === AbaPaymentStatus.APPROVED) {
 
 #### A. Generate Dynamic Individual KHQR
 ```typescript
-import { SobinPay } from "@sobin/pay";
+import { SobinPay } from "@sobindigital/pay";
 
 const qrString = SobinPay.khqr.generateIndividual({
   bakongAccountId: "sobin_digital@aclb",

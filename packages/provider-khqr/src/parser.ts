@@ -12,7 +12,7 @@
  */
 
 import { calculateCrc16 } from "./crc16.js";
-import { PaymentCurrency } from "@sobin/core";
+import { PaymentCurrency } from "@sobindigital/core";
 import type { ParsedKhqr } from "./types.js";
 
 export class KhqrParser {

@@ -94,7 +94,7 @@ export const SEARCH_INDEX: SearchEntry[] = [
     id: "overview-install",
     title: "Installation & Dual ESM/CJS",
     section: "Overview",
-    description: "Install @sobin/pay via npm, pnpm, yarn, or bun with zero external dependencies.",
+    description: "Install @sobindigital/pay via npm, pnpm, yarn, or bun with zero external dependencies.",
     keywords: ["install", "npm", "pnpm", "yarn", "bun", "esm", "cjs"],
   },
   {

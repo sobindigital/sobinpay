@@ -12,7 +12,7 @@
  */
 
 import { NextResponse } from "next/server";
-import { SobinPay, AbaPaymentOption, AbaViewType } from "@sobin/pay";
+import { SobinPay, AbaPaymentOption, AbaViewType } from "@sobindigital/pay";
 
 export async function POST(req: Request) {
   try {
