@@ -16,7 +16,7 @@
 import React from "react";
 import { CodeBlock } from "../CodeBlock";
 import { Badge } from "../Badge";
-import { ShieldCheck, Cpu, Layers, Scale, AlertTriangle } from "lucide-react";
+import { ShieldCheck, Cpu, Layers, Scale, AlertTriangle, Bot, Terminal } from "lucide-react";
 
 export function OverviewDocs() {
   return (
@@ -89,6 +89,28 @@ export function OverviewDocs() {
             <li><code>@sobindigital/provider-khqr</code> — Dedicated Bakong KHQR generator & parser</li>
             <li><code>@sobindigital/core</code> — Shared types, money math, and crypto primitives</li>
           </ul>
+        </div>
+
+        {/* AI Agent Skills Card */}
+        <div className="mt-6 p-5 rounded-2xl bg-gradient-to-r from-blue-950/40 via-indigo-950/20 to-slate-900/60 border border-blue-500/20 space-y-3">
+          <div className="flex items-center gap-2 text-blue-400 font-semibold text-sm">
+            <Bot className="w-4 h-4 text-blue-400" />
+            <span>Install AI Agent Skills (Cursor, Claude Code, GitHub Copilot)</span>
+            <Badge variant="blue">New</Badge>
+          </div>
+          <p className="text-xs text-slate-300 leading-relaxed">
+            Equip your AI assistant with official SobinPay rules, security constraints, and TypeScript payment patterns:
+          </p>
+          <CodeBlock
+            code="npx @sobindigital/pay skills add cursor claude copilot"
+            language="bash"
+            showLineNumbers={false}
+          />
+          <div className="text-[11px] text-slate-400 flex flex-wrap items-center gap-x-4 gap-y-1 pt-1">
+            <span>• <code>cursor</code>: <code>.cursor/rules/sobinpay.mdc</code></span>
+            <span>• <code>claude</code>: <code>.claude/skills/sobinpay.md</code></span>
+            <span>• <code>copilot</code>: <code>.github/copilot-instructions.md</code></span>
+          </div>
         </div>
       </section>
 

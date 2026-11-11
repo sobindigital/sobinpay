@@ -29,6 +29,31 @@ Maintained and engineered with ❤️ by **Sobin Digital**:
 
 ---
 
+## 🤖 Install AI Agent Skills (Optional)
+
+Supercharge your development workflow! Teach your AI coding assistant (Cursor, Claude Code, GitHub Copilot, Windsurf, ChatGPT) how to write accurate, secure SobinPay payment integrations:
+
+```bash
+# Install skill for your preferred AI agent
+npx @sobindigital/pay skills add cursor
+
+# Or install for multiple agents at once
+npx @sobindigital/pay skills add cursor claude copilot windsurf codex
+
+# Check installed skills
+npx @sobindigital/pay skills list
+
+# Verify your credentials and environment
+npx @sobindigital/pay doctor
+```
+
+What you get:
+- ✅ Automatic prompt rules placed in `.cursor/rules/sobinpay.mdc` or `.claude/skills/sobinpay.md`
+- ✅ Constant-time webhook verification best practices automatically enforced
+- ✅ Production-ready Next.js, Express, and NestJS payment patterns generated on demand
+
+---
+
 ## 📦 Installation
 
 ```bash
