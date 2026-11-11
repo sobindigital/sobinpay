@@ -1,0 +1,50 @@
+{
+  "name": "@sobin/provider-payway",
+  "version": "0.1.0",
+  "description": "ABA PayWay payment provider implementation for SobinPay (Popup, Hosted, Direct KHQR, Webhooks)",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sobindigital/sobinpay.git",
+    "directory": "packages/provider-payway"
+  },
+  "keywords": [
+    "aba",
+    "payway",
+    "aba-payway",
+    "cambodia-payment",
+    "sobinpay",
+    "payment-gateway"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@sobin/core": "^0.1.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3"
+  },
+  "author": "Sobin Digital",
+  "license": "MIT"
+}

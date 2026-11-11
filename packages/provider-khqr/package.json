@@ -1,0 +1,50 @@
+{
+  "name": "@sobin/provider-khqr",
+  "version": "0.1.0",
+  "description": "Bakong KHQR EMVCo generator, TLV parser, and deeplink provider for SobinPay",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sobindigital/sobinpay.git",
+    "directory": "packages/provider-khqr"
+  },
+  "keywords": [
+    "khqr",
+    "bakong",
+    "emvco",
+    "cambodia-qr",
+    "nbc",
+    "sobinpay"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@sobin/core": "^0.1.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.6",
+    "typescript": "^5.7.3"
+  },
+  "author": "Sobin Digital",
+  "license": "MIT"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "sobinpay-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Enterprise-grade multi-provider payment gateway SDK for Cambodia by Sobin Digital",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build:packages": "npm run build --workspace=@sobin/core && npm run build --workspace=@sobin/provider-khqr && npm run build --workspace=@sobin/provider-payway && npm run build --workspace=@sobin/pay",
+    "build": "npm run build:packages && npm run build --workspace=playground",
+    "publish:packages": "npm run build:packages && npm publish --workspace=@sobin/core --access public && npm publish --workspace=@sobin/provider-khqr --access public && npm publish --workspace=@sobin/provider-payway --access public && npm publish --workspace=@sobin/pay --access public",
+    "test": "vitest run",
+    "lint": "npm run --workspaces --if-present lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\"",
+    "clean": "npm run --workspaces --if-present clean"
+  },
+  "devDependencies": {
+    "@types/node": "^22.12.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": "Sobin Digital",
+  "license": "MIT"
+}
+
