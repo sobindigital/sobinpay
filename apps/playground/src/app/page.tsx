@@ -22,6 +22,7 @@ import { PayWayDocs } from "../components/docs/PayWayDocs";
 import { KhqrDocs } from "../components/docs/KhqrDocs";
 import { ReferenceDocs } from "../components/docs/ReferenceDocs";
 import { FrameworkRecipes } from "../components/docs/FrameworkRecipes";
+import { FaqSection } from "../components/docs/FaqSection";
 import { PlaygroundTester } from "../components/PlaygroundTester";
 import { WebhookDebugger } from "../components/WebhookDebugger";
 import { KhqrInspector } from "../components/KhqrInspector";
@@ -37,6 +38,7 @@ import {
   TikTokIcon,
   TelegramIcon,
   GithubIcon,
+  SobinPayLogo,
   VerifiedBadgeIcon,
 } from "../components/Icons";
 import { DOCS_NAV_SECTIONS } from "../lib/docs-data";
@@ -248,6 +250,9 @@ export default function DocsPortalPage() {
 
             {/* Framework Recipes Section */}
             <FrameworkRecipes />
+
+            {/* AEO Frequently Asked Questions */}
+            <FaqSection />
           </main>
         </div>
       </div>
@@ -257,8 +262,8 @@ export default function DocsPortalPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
-              <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center font-bold text-white text-xs shadow-md">
-                SP
+              <div className="w-8 h-8 rounded-xl bg-[#0A0E1A] border border-white/10 flex items-center justify-center p-1.5 shadow-md shadow-blue-500/10">
+                <SobinPayLogo className="w-full h-full" />
               </div>
               <div className="text-left">
                 <span className="font-bold text-sm text-white">SobinPay</span>
@@ -267,6 +272,14 @@ export default function DocsPortalPage() {
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400">
+              <a
+                href="/llms.txt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-blue-400 hover:text-blue-300 font-medium transition-colors"
+              >
+                <span>llms.txt (AI Spec)</span>
+              </a>
               <a
                 href="https://t.me/sobindigital"
                 target="_blank"

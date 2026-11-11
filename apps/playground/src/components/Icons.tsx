@@ -122,12 +122,12 @@ export function BakongKhqrIcon({ className = "w-4 h-4", size, ...props }: IconPr
 }
 
 /**
- * SobinPay Brand Emblem - Fintech Digital Node Shield
+ * SobinPay Brand Emblem - Geometric Digital S + Lightning Bolt
  */
 export function SobinPayLogo({ className = "w-5 h-5", size, ...props }: IconProps) {
   return (
     <svg
-      viewBox="0 0 24 24"
+      viewBox="0 0 120 120"
       fill="none"
       width={size}
       height={size}
@@ -135,20 +135,92 @@ export function SobinPayLogo({ className = "w-5 h-5", size, ...props }: IconProp
       aria-hidden="true"
       {...props}
     >
+      <defs>
+        <linearGradient id="sobinPayIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#00F2FE" />
+          <stop offset="50%" stopColor="#3B82F6" />
+          <stop offset="100%" stopColor="#6366F1" />
+        </linearGradient>
+      </defs>
       <path
-        d="M12 2L4 6v6c0 5.25 3.4 10.15 8 11.35 4.6-1.2 8-6.1 8-11.35V6l-8-4z"
-        stroke="currentColor"
-        strokeWidth="1.8"
+        d="M78 28 H46 C36 28 28 36 28 46 C28 56 36 63 46 63 H74 C84 63 92 70 92 80 C92 90 84 98 74 98 H42"
+        stroke="url(#sobinPayIconGrad)"
+        strokeWidth="14"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M9 12.5l2 2 4-4"
-        stroke="currentColor"
-        strokeWidth="2"
+        d="M66 38 L50 63 H68 L54 84"
+        stroke="#FFFFFF"
+        strokeWidth="5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+      <circle cx="82" cy="38" r="4" fill="#00F2FE" />
+      <circle cx="38" cy="88" r="4" fill="#6366F1" />
+    </svg>
+  );
+}
+
+/**
+ * SobinPay Horizontal Brand Lockup with Subtitle
+ */
+export function SobinPayFullLogo({ className = "h-8 w-auto", ...props }: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 380 90"
+      fill="none"
+      className={className}
+      aria-label="SobinPay by Sobin Digital"
+      {...props}
+    >
+      <defs>
+        <linearGradient id="sobinFullGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#00F2FE" />
+          <stop offset="50%" stopColor="#3B82F6" />
+          <stop offset="100%" stopColor="#6366F1" />
+        </linearGradient>
+        <linearGradient id="sobinPayTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#38BDF8" />
+          <stop offset="100%" stopColor="#818CF8" />
+        </linearGradient>
+      </defs>
+
+      <g transform="translate(10, 8)">
+        <rect width="74" height="74" rx="20" fill="#0A0E1A" stroke="rgba(255,255,255,0.15)" strokeWidth="1.2" />
+        <path
+          d="M48 20 H30 C23 20 18 25 18 32 C18 39 23 44 30 44 H44 C51 44 56 49 56 56 C56 63 51 68 44 68 H26"
+          fill="none"
+          stroke="url(#sobinFullGrad)"
+          strokeWidth="8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M41 27 L31 44 H42 L33 58"
+          fill="none"
+          stroke="#FFFFFF"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </g>
+
+      <g transform="translate(102, 48)">
+        <text fontFamily="system-ui, -apple-system, sans-serif" fontWeight="800" fontSize="34" letterSpacing="-0.5" fill="#FFFFFF">
+          Sobin
+        </text>
+        <text x="96" fontFamily="system-ui, -apple-system, sans-serif" fontWeight="800" fontSize="34" letterSpacing="-0.5" fill="url(#sobinPayTextGrad)">
+          Pay
+        </text>
+      </g>
+
+      <g transform="translate(104, 70)">
+        <text fontFamily="system-ui, -apple-system, sans-serif" fontWeight="600" fontSize="11" letterSpacing="1.2" fill="#94A3B8">
+          BY SOBIN DIGITAL
+        </text>
+        <circle cx="214" cy="-3.5" r="3" fill="#00F2FE" />
+      </g>
     </svg>
   );
 }

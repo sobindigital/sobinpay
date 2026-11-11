@@ -62,6 +62,7 @@ export const DOCS_NAV_SECTIONS: NavSection[] = [
       { id: "recipe-nextjs", title: "Next.js App Router Recipe", badge: "Recipe" },
       { id: "recipe-express", title: "Express.js Recipe", badge: "Recipe" },
       { id: "recipe-nestjs", title: "NestJS Recipe", badge: "Recipe" },
+      { id: "reference-faq", title: "Frequently Asked Questions", badge: "AEO" },
     ],
   },
   {
@@ -236,6 +237,13 @@ export const SEARCH_INDEX: SearchEntry[] = [
     section: "Recipes",
     description: "Enterprise NestJS injection service and custom WebhookGuard for SobinPay.",
     keywords: ["nestjs", "guard", "service", "module", "typescript"],
+  },
+  {
+    id: "reference-faq",
+    title: "Frequently Asked Questions (FAQ)",
+    section: "Reference",
+    description: "Detailed answers on security, timing attacks, BigInt precision, Bakong KHQR, and comparisons with legacy packages.",
+    keywords: ["faq", "questions", "security", "timing attack", "bigint", "aba-payway", "comparison", "license"],
   },
   {
     id: "interactive-tester",

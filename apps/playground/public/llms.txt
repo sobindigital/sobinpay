@@ -1,0 +1,99 @@
+# SobinPay
+
+> Cambodia's Enterprise Multi-Provider Payment Gateway SDK for ABA PayWay and Bakong KHQR. Engineered by Sobin Digital.
+
+SobinPay is the official enterprise TypeScript payment gateway monorepo for Cambodia. It provides a unified, strictly-typed, timing-safe API for processing transactions through Advanced Bank of Asia (ABA) PayWay and the National Bank of Cambodia (NBC) Bakong KHQR EMVCo specification.
+
+## Core Packages
+
+- `@sobindigital/pay`: High-level umbrella gateway client.
+- `@sobindigital/provider-payway`: ABA PayWay v2.0 client (Web Checkout Popup/Hosted, Direct KHQR Deeplinks, Check Transaction, RSA Refunds, HMAC-SHA512 Webhooks).
+- `@sobindigital/provider-khqr`: National Bank of Cambodia Bakong KHQR (Individual QR, Merchant QR, EMVCo 29-tag parser, CRC-16 CCITT validator).
+- `@sobindigital/core`: Zero-loss BigInt Money arithmetic and timing-safe cryptographic utilities (`crypto.timingSafeEqual`).
+
+## Key Highlights & Enterprise Standards
+
+- **Zero-Loss Money**: Uses integer cents (`BigInt`) to eliminate IEEE-754 floating-point rounding errors across USD and KHR.
+- **Timing-Attack Resistance**: Uses constant-time `crypto.timingSafeEqual` for all HMAC-SHA512 webhook signature validations.
+- **Dual ESM / CJS**: Native ESM (`import`) and CommonJS (`require`) with full TypeScript declarations (`.d.ts` and `.d.cts`).
+- **Zero External Dependencies**: Pure Node.js built-ins (`node:crypto`, `node:https`), tree-shakeable, runs on Node >= 18, Cloudflare Workers, Next.js, and Bun.
+- **MIT Licensed & Maintained by Sobin Digital**: Production-ready open-source infrastructure with active LTS support.
+
+## Installation
+
+```bash
+# High-level all-in-one SDK (Recommended)
+npm install @sobindigital/pay
+
+# Or modular provider packages
+npm install @sobindigital/provider-payway
+npm install @sobindigital/provider-khqr
+```
+
+## Quickstart: ABA PayWay Web Checkout
+
+```typescript
+import { PayWayClient } from "@sobindigital/provider-payway";
+
+const payway = new PayWayClient({
+  merchantId: process.env.ABA_PAYWAY_MERCHANT_ID!,
+  apiKey: process.env.ABA_PAYWAY_API_KEY!,
+  mode: "sandbox", // or "production"
+});
+
+// Create checkout transaction
+const checkout = await payway.createTransaction({
+  tranId: "INV-2026-001",
+  amount: 25.00,
+  reqTime: "20261111153000",
+  paymentOption: "cards",
+  returnUrl: "https://example.com/checkout/callback",
+});
+```
+
+## Quickstart: Bakong KHQR Generation
+
+```typescript
+import { generateMerchantKhqr } from "@sobindigital/provider-khqr";
+
+const khqr = generateMerchantKhqr({
+  bakongAccountId: "sobindigital@aba",
+  merchantName: "Sobin Digital Store",
+  merchantCity: "Phnom Penh",
+  acquiringBank: "ABA Bank",
+  currency: "USD",
+  amount: 15.50,
+  billNumber: "INV-8899",
+});
+
+console.log(khqr.qr); // EMVCo compliant KHQR string with valid CRC-16
+console.log(khqr.md5); // Transaction tracking hash
+```
+
+## Quickstart: Timing-Safe Webhook Verification
+
+```typescript
+import { verifyPayWayWebhook } from "@sobindigital/provider-payway";
+
+// Secure Next.js App Router Route Handler (POST /api/webhooks/payway)
+export async function POST(req: Request) {
+  const body = await req.json();
+  const isValid = verifyPayWayWebhook(body, process.env.ABA_PAYWAY_API_KEY!);
+  
+  if (!isValid) {
+    return new Response("Invalid signature", { status: 401 });
+  }
+
+  // Idempotently process confirmed payment
+  return new Response(JSON.stringify({ status: "ok" }), { status: 200 });
+}
+```
+
+## Documentation & Links
+
+- Documentation Portal: https://pay.sobindigital.com
+- Full LLM Knowledge Base: https://pay.sobindigital.com/llms-full.txt
+- GitHub Monorepo: https://github.com/sobindigital/sobinpay
+- NPM Organization: https://www.npmjs.com/org/sobindigital
+- Publisher: Sobin Digital (Telegram: https://t.me/sobindigital, TikTok: https://www.tiktok.com/@sobindigital)
+- License: MIT License (c) 2026 Sobin Digital

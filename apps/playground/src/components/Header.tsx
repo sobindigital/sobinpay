@@ -111,6 +111,12 @@ export function Header({
             Reference
           </button>
           <button
+            onClick={() => handleNavClick("reference-faq")}
+            className="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/[0.05] transition-colors"
+          >
+            FAQ
+          </button>
+          <button
             onClick={() => handleNavClick("interactive-tester")}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sky-400 hover:text-sky-300 hover:bg-sky-500/10 transition-colors"
           >

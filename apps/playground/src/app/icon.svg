@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="sobinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F2FE" />
+      <stop offset="45%" stop-color="#3B82F6" />
+      <stop offset="100%" stop-color="#6366F1" />
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#818CF8" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <rect width="120" height="120" rx="28" fill="#0A0E1A" />
+  <rect width="118" height="118" x="1" y="1" rx="27" fill="url(#glowGrad)" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+
+  <g>
+    <!-- Top Arc of S -->
+    <path
+      d="M78 28 H46 C36 28 28 36 28 46 C28 56 36 63 46 63 H74 C84 63 92 70 92 80 C92 90 84 98 74 98 H42"
+      fill="none"
+      stroke="url(#sobinGrad)"
+      stroke-width="13"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <!-- Center Dynamic Energy Bolt / Payment Arrow -->
+    <path
+      d="M66 38 L50 63 H68 L54 84"
+      fill="none"
+      stroke="#FFFFFF"
+      stroke-width="4.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <!-- Accent Nodes -->
+    <circle cx="82" cy="38" r="3.5" fill="#00F2FE" />
+    <circle cx="38" cy="88" r="3.5" fill="#6366F1" />
+  </g>
+</svg>

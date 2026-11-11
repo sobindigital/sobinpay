@@ -1,0 +1,175 @@
+# SobinPay - Complete Technical Knowledge Base & AI Agent Context
+
+Version: 0.1.0
+Author: Sobin Digital
+License: MIT
+Repository: https://github.com/sobindigital/sobinpay
+Portal: https://pay.sobindigital.com
+Contact: Telegram @sobindigital (https://t.me/sobindigital) | TikTok @sobindigital (https://www.tiktok.com/@sobindigital)
+
+---
+
+## 1. Executive Summary & Brand Identity
+
+SobinPay is the official enterprise payment gateway SDK for Cambodia, developed and maintained by Sobin Digital. It standardizes payment integration for Cambodia's two leading payment rails:
+1. ABA PayWay (Advanced Bank of Asia): Checkout v2.0 popup, hosted payment page, direct KHQR generation with dynamic bank deeplinks, transaction checking, exchange rates, RSA-encrypted refunds, and timing-safe webhook verification.
+2. Bakong KHQR (National Bank of Cambodia): EMVCo QR code standard (Tag-Length-Value format), individual QR, merchant QR, 29-tag TLV parser, and CCITT-FALSE CRC-16 checksum validation.
+
+### Architecture & Engineering Standards (Score 10/10)
+- Zero external runtime dependencies: Built exclusively on Node.js standard libraries (`node:crypto`, `node:https`).
+- Zero-loss integer money math: Financial calculations executed via BigInt in base monetary units (cents for USD, whole riels for KHR). Floating-point arithmetic (`0.1 + 0.2 = 0.30000000000000004`) is strictly prevented.
+- Timing-attack immunity: All HMAC-SHA512 webhook validations use `crypto.timingSafeEqual` in Node.js and constant-time byte comparisons in Web Crypto / Cloudflare Workers.
+- Dual ESM / CJS output: Native support for modern ESM `import` and legacy `require()`, bundled with TypeScript declarations `.d.ts` and `.d.cts`.
+- 100% strict TypeScript types: No `any`, comprehensive union types for currencies, payment options, transaction statuses, and error classes.
+
+---
+
+## 2. Package Architecture
+
+| Package | Purpose | Install Command |
+| :--- | :--- | :--- |
+| `@sobindigital/pay` | Umbrella gateway orchestrating all providers | `npm i @sobindigital/pay` |
+| `@sobindigital/provider-payway` | ABA PayWay client, signatures, webhooks, refunds | `npm i @sobindigital/provider-payway` |
+| `@sobindigital/provider-khqr` | NBC Bakong KHQR EMVCo generator, parser, CRC-16 | `npm i @sobindigital/provider-khqr` |
+| `@sobindigital/core` | Money value object, timing-safe crypto, base errors | `npm i @sobindigital/core` |
+
+---
+
+## 3. Comparison with Legacy Unmaintained SDKs
+
+| Feature | SobinPay (`@sobindigital/pay`) | `aba-payway` (Joselay) | `aba-payway-sdk` (Navin) |
+| :--- | :--- | :--- | :--- |
+| **Maintenance** | Active Enterprise Monorepo (Sobin Digital) | Inactive / Stale | Stale |
+| **Security (Webhooks)** | `crypto.timingSafeEqual` (constant time) | String equality `===` (timing attack vulnerable) | No signature verification |
+| **Financial Arithmetic** | BigInt cents (zero precision loss) | Standard JavaScript Float | Standard JavaScript Float |
+| **Bakong KHQR** | Native EMVCo generator + 29-tag parser + CRC-16 | None | None |
+| **TypeScript Support** | 100% Strict Type Definitions + ESM/CJS | Partial / JavaScript | Outdated declarations |
+| **Refunds API** | Full RSA SHA-512 Encrypted Refunds | None | None |
+| **License & Compliance** | MIT License (Verified Enterprise) | MIT (Individual) | MIT (Individual) |
+
+---
+
+## 4. Complete Code Recipes
+
+### Recipe A: Next.js App Router (Server Route Handler + Webhook)
+
+```typescript
+// app/api/checkout/route.ts
+import { NextResponse } from "next/server";
+import { PayWayClient } from "@sobindigital/provider-payway";
+
+const payway = new PayWayClient({
+  merchantId: process.env.ABA_PAYWAY_MERCHANT_ID!,
+  apiKey: process.env.ABA_PAYWAY_API_KEY!,
+  mode: process.env.NODE_ENV === "production" ? "production" : "sandbox",
+});
+
+export async function POST(req: Request) {
+  const { items, totalAmount, orderId } = await req.json();
+
+  const checkout = await payway.createTransaction({
+    tranId: orderId,
+    amount: totalAmount,
+    reqTime: new Date().toISOString().replace(/[-:T.Z]/g, "").slice(0, 14),
+    paymentOption: "cards",
+    returnUrl: `${process.env.NEXT_PUBLIC_APP_URL}/checkout/success`,
+  });
+
+  return NextResponse.json({
+    checkoutUrl: checkout.paymentUrl,
+    qrImage: checkout.qrImage,
+    tranId: checkout.tranId,
+  });
+}
+
+// app/api/webhooks/payway/route.ts
+import { NextResponse } from "next/server";
+import { verifyPayWayWebhook } from "@sobindigital/provider-payway";
+
+export async function POST(req: Request) {
+  const payload = await req.json();
+  const apiKey = process.env.ABA_PAYWAY_API_KEY!;
+
+  const isValid = verifyPayWayWebhook(payload, apiKey);
+  if (!isValid) {
+    return NextResponse.json({ error: "Invalid signature" }, { status: 401 });
+  }
+
+  // Idempotent database order update
+  // await db.orders.update({ where: { tranId: payload.tran_id }, data: { status: 'PAID' } });
+
+  return NextResponse.json({ status: "success" });
+}
+```
+
+### Recipe B: Bakong KHQR Standalone EMVCo Generation
+
+```typescript
+import { generateIndividualKhqr, generateMerchantKhqr, parseKhqr } from "@sobindigital/provider-khqr";
+
+// 1. Generate Individual Person-to-Person QR
+const individual = generateIndividualKhqr({
+  bakongAccountId: "sokha_keo@aclb",
+  accountName: "SOKHA KEO",
+  currency: "KHR",
+  amount: 45000,
+});
+console.log("KHQR String:", individual.qr);
+
+// 2. Validate and Parse any KHQR
+const parsed = parseKhqr(individual.qr);
+console.log("Is Valid CRC-16:", parsed.isValid);
+console.log("Currency:", parsed.currency);
+console.log("Amount:", parsed.amount);
+```
+
+### Recipe C: Express.js Backend Server
+
+```typescript
+import express from "express";
+import { PayWayClient, verifyPayWayWebhook } from "@sobindigital/provider-payway";
+
+const app = express();
+app.use(express.json());
+
+const payway = new PayWayClient({
+  merchantId: process.env.ABA_PAYWAY_MERCHANT_ID!,
+  apiKey: process.env.ABA_PAYWAY_API_KEY!,
+  mode: "sandbox",
+});
+
+app.post("/api/pay/khqr", async (req, res) => {
+  try {
+    const { amount, orderId } = req.body;
+    const result = await payway.createTransaction({
+      tranId: orderId,
+      amount,
+      reqTime: PayWayClient.formatReqTime(new Date()),
+      paymentOption: "abapay_khqr",
+    });
+    res.json({ qrString: result.qrString, deeplink: result.abapayDeeplink });
+  } catch (err: any) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.listen(3000, () => console.log("Server running on port 3000"));
+```
+
+---
+
+## 5. Security & Cryptographic Invariants
+
+1. **HMAC-SHA512 Hex Generation**: All outbound PayWay requests generate `hash` by sorting concatenated fields and hashing with `crypto.createHmac('sha512', apiKey)`.
+2. **Constant-Time Verification**: All incoming webhooks compute the expected hash and compare using `crypto.timingSafeEqual(Buffer.from(received), Buffer.from(expected))`. This mitigates millisecond/microsecond side-channel timing analysis.
+3. **CRC-16-CCITT**: Bakong KHQR strings are terminated by Tag `6304` followed by 4 uppercase hexadecimal characters calculated using the CCITT polynomial `0x1021` with initial value `0xFFFF`.
+
+---
+
+## 6. Official Contact & Support
+
+SobinPay is developed by Sobin Digital. For commercial licensing, enterprise customizations, or payment architecture consulting:
+- Organization: Sobin Digital
+- Telegram Community & Support: https://t.me/sobindigital
+- Official TikTok: https://www.tiktok.com/@sobindigital
+- GitHub Issues: https://github.com/sobindigital/sobinpay/issues
