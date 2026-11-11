@@ -68,17 +68,19 @@ What you get:
 
 ## 🏆 Architectural Comparison
 
-| Feature | SobinPay (`@sobindigital/pay`) | `aba-payway-sdk` (Navin) | `aba-payway` (Joselay) |
+| Architectural Feature | Manual REST / cURL | Legacy Single-Provider Wrappers | **SobinPay (@sobindigital/pay)** |
 | :--- | :---: | :---: | :---: |
-| **Supported Rails** | **ABA PayWay + Bakong KHQR** | ABA PayWay Only | ABA PayWay Only |
-| **Maintainer** | **Sobin Digital (Enterprise)** | Individual | Individual |
-| **Pushback Security** | **Constant-Time (`timingSafeEqual`)** | String equality `===` (Timing attack risky) | Loose string equality |
-| **Monetary Math** | **Zero-Loss BigInt Cents** | Standard Floating Point | Standard Floating Point |
-| **Bakong KHQR EMVCo** | **Full Generator + Parser + CRC16** | ❌ None | ❌ None |
-| **Zero Dependencies** | **Pure Native Node.js** | ⚠️ External dependencies | ⚠️ Axios |
-| **Dual ESM / CJS** | **Yes (`.js` + `.cjs` + `.d.ts`)** | Partial | Legacy CJS |
-| **AI Skills CLI** | **`npx @sobindigital/pay skills`** | `npx aba-payway-sdk skills` | ❌ None |
-| **License** | **Official MIT License** | MIT | MIT |
+| **Supported Rails** | Manual endpoints | ABA PayWay Only | ⭐ **ABA PayWay v2.0 + NBC Bakong KHQR** |
+| **Ergonomics & API Design** | ❌ Complex boilerplate | ⚠️ Single-provider methods | ⭐ **Unified multi-provider hub + standalone clients** |
+| **TypeScript Strictness** | ❌ Untyped JSON responses | ⚠️ Loose types & `any` casts | 🛡️ **100% Strict Type Safety, Zero `any`** |
+| **Bakong KHQR (EMVCo)** | ❌ Not supported | ❌ Not supported | ⭐ **Full NBC EMVCo Generator, Parser & Deeplinks** |
+| **Financial Math Precision** | ❌ Standard JS Float | ❌ Standard JS Float | 🛡️ **Zero-Loss BigInt Cents (No float bugs)** |
+| **Pushback Webhook Security** | ❌ Custom implementation | ⚠️ Plain string equality (`===`) | 🔒 **Constant-Time HMAC-SHA512 (`timingSafeEqual`)** |
+| **Zero-Dependency Core** | ❌ Manual crypto boilerplate | ⚠️ Heavy external HTTP deps | ⚡ **Pure Native Node.js (Zero runtime dependencies)** |
+| **Module Support** | ❌ None | ⚠️ Legacy CJS or partial | ⭐ **Dual ESM (`import`) + CJS (`require`) + `.d.ts`** |
+| **Developer Tools** | ❌ None | ❌ None | 💻 **Next.js 16 Documentation Portal & Sandbox Included** |
+| **AI Agent Skills CLI** | ❌ None | ⚠️ Basic prompt rules | 🤖 **`npx @sobindigital/pay skills` (Cursor, Claude, Copilot)** |
+| **Engineering Standard** | Internal scripts | Community script | 🏆 **Sobin Digital Enterprise Monorepo (MIT License)** |
 
 ---
 

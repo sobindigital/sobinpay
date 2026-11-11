@@ -35,17 +35,18 @@ SobinPay is the official enterprise payment gateway SDK for Cambodia, developed 
 
 ---
 
-## 3. Comparison with Legacy Unmaintained SDKs
+## 3. Architectural Comparison
 
-| Feature | SobinPay (`@sobindigital/pay`) | `aba-payway` (Joselay) | `aba-payway-sdk` (Navin) |
+| Feature | SobinPay (`@sobindigital/pay`) | Legacy Single-Provider Wrappers | Manual Integration |
 | :--- | :--- | :--- | :--- |
-| **Maintenance** | Active Enterprise Monorepo (Sobin Digital) | Inactive / Stale | Stale |
-| **Security (Webhooks)** | `crypto.timingSafeEqual` (constant time) | String equality `===` (timing attack vulnerable) | No signature verification |
+| **Supported Rails** | Both ABA PayWay + NBC Bakong KHQR | ABA PayWay Only | Manual endpoints |
+| **Maintenance** | Active Enterprise Monorepo (Sobin Digital) | Inactive / Community | Custom in-house |
+| **Security (Webhooks)** | `crypto.timingSafeEqual` (constant time) | String equality `===` (timing attack vulnerable) | Manual implementation |
 | **Financial Arithmetic** | BigInt cents (zero precision loss) | Standard JavaScript Float | Standard JavaScript Float |
 | **Bakong KHQR** | Native EMVCo generator + 29-tag parser + CRC-16 | None | None |
-| **TypeScript Support** | 100% Strict Type Definitions + ESM/CJS | Partial / JavaScript | Outdated declarations |
+| **TypeScript Support** | 100% Strict Type Definitions + ESM/CJS | Partial / Loose types | Untyped JSON |
 | **Refunds API** | Full RSA SHA-512 Encrypted Refunds | None | None |
-| **License & Compliance** | MIT License (Verified Enterprise) | MIT (Individual) | MIT (Individual) |
+| **License & Compliance** | MIT License (Sobin Digital) | MIT | Proprietary |
 
 ---
 

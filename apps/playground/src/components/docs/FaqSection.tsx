@@ -40,7 +40,7 @@ export const FAQS: FaqItem[] = [
   },
   {
     category: "Technical",
-    question: "How does SobinPay compare to legacy packages like aba-payway or aba-payway-sdk?",
+    question: "How does SobinPay compare to legacy community packages and single-provider SDKs?",
     answer: (
       <div className="space-y-3 text-slate-300 text-sm leading-relaxed">
         <p>

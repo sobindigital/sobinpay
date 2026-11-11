@@ -131,7 +131,7 @@ const jsonLd = {
         },
         {
           "@type": "Question",
-          name: "How does SobinPay compare to legacy packages like aba-payway or aba-payway-sdk?",
+          name: "How does SobinPay compare to legacy community packages and single-provider SDKs?",
           acceptedAnswer: {
             "@type": "Answer",
             text: "SobinPay uses crypto.timingSafeEqual to prevent timing attack vulnerabilities on webhooks, uses BigInt integer arithmetic to prevent floating-point financial bugs, includes native Bakong KHQR EMVCo generation with CRC-16, and provides full TypeScript types with dual ESM/CJS support.",
