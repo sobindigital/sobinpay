@@ -1,6 +1,6 @@
 {
   "name": "@sobindigital/provider-khqr",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Bakong KHQR EMVCo generator, TLV parser, and deeplink provider for SobinPay",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -39,7 +39,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@sobindigital/core": "^0.1.0"
+    "@sobindigital/core": "^0.1.1"
   },
   "devDependencies": {
     "tsup": "^8.3.6",

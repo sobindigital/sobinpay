@@ -73,7 +73,7 @@ export function Header({
                 SobinPay
               </span>
               <span className="px-1.5 py-0.5 text-[10px] font-mono font-medium rounded bg-white/[0.06] text-slate-300 border border-white/[0.08]">
-                v0.1.0
+                v0.1.1
               </span>
             </div>
           </button>

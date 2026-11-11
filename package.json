@@ -1,6 +1,6 @@
 {
   "name": "sobinpay-monorepo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "Enterprise-grade multi-provider payment gateway SDK for Cambodia by Sobin Digital",
   "workspaces": [

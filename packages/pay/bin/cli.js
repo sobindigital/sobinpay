@@ -12,7 +12,7 @@ import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
 
-const VERSION = "0.1.0";
+const VERSION = "0.1.1";
 
 const SKILL_CONTENT = `# SobinPay Payment Integration Guide & Best Practices
 # Engineered by Sobin Digital (https://pay.sobindigital.com)

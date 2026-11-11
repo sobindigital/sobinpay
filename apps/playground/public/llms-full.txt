@@ -1,6 +1,6 @@
 # SobinPay - Complete Technical Knowledge Base & AI Agent Context
 
-Version: 0.1.0
+Version: 0.1.1
 Author: Sobin Digital
 License: MIT
 Repository: https://github.com/sobindigital/sobinpay

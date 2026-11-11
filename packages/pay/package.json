@@ -1,6 +1,6 @@
 {
   "name": "@sobindigital/pay",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Unified TypeScript Payment SDK for Cambodia by Sobin Digital (ABA PayWay, Bakong KHQR)",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -47,9 +47,9 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@sobindigital/core": "^0.1.0",
-    "@sobindigital/provider-khqr": "^0.1.0",
-    "@sobindigital/provider-payway": "^0.1.0"
+    "@sobindigital/core": "^0.1.1",
+    "@sobindigital/provider-khqr": "^0.1.1",
+    "@sobindigital/provider-payway": "^0.1.1"
   },
   "devDependencies": {
     "tsup": "^8.3.6",

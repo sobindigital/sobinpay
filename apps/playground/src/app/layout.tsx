@@ -106,7 +106,7 @@ const jsonLd = {
       name: "SobinPay",
       applicationCategory: "FinancialApplication",
       operatingSystem: "Node.js, Next.js, Cloudflare Workers, Bun",
-      softwareVersion: "0.1.0",
+      softwareVersion: "0.1.1",
       license: "https://opensource.org/licenses/MIT",
       offers: {
         "@type": "Offer",
