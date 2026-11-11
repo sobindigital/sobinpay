@@ -1,0 +1,56 @@
+name: Release & Publish to NPM
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag (e.g. v0.1.0)"
+        required: false
+        default: ""
+
+jobs:
+  publish:
+    name: Build & Publish to NPM
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          registry-url: "https://registry.npmjs.org/"
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Vitest Suite
+        run: npm run test
+
+      - name: Build Packages (Dual ESM + CJS)
+        run: npm run build:packages
+
+      - name: Publish Packages to NPM Registry
+        run: |
+          npm publish --workspace=@sobindigital/core --access public
+          npm publish --workspace=@sobindigital/provider-khqr --access public
+          npm publish --workspace=@sobindigital/provider-payway --access public
+          npm publish --workspace=@sobindigital/pay --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: Release ${{ github.ref_name }}
+          generate_release_notes: true
