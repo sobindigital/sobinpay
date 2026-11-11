@@ -17,15 +17,15 @@ Maintained and engineered with ❤️ by **Sobin Digital**:
 
 ## 🌟 Why SobinPay?
 
-| Feature | Legacy SDKs | `aba-payway` (Joselay) | `aba-payway-sdk` (Navin) | **SobinPay (@sobin/pay)** |
-| :--- | :---: | :---: | :---: | :---: |
-| **Ergonomics** | ❌ Complex boilerplate | ✅ `payway.createTransaction` | ✅ `payway.createQR` | ⭐ **`sobin.aba.createQR` & `PayWay` direct** |
-| **TypeScript Strictness** | ❌ Lots of `any` | ⚠️ Partial | ⚠️ Partial | 🛡️ **100% Strict, Zero `any`** |
-| **Status Enums** | ❌ Loose strings | ❌ String comparisons | ⚠️ String union | ⭐ **`AbaPaymentStatus` Enum** |
-| **Bakong KHQR (EMVCo)** | ❌ None | ❌ None | ❌ None | ⭐ **Full NBC EMVCo Generator & Parser** |
-| **Zero Dependencies** | ❌ Heavy Axios/crypto deps | ❌ Axios dependency | ❌ Axios dependency | ⚡ **Zero Heavy Deps (Native Web Fetch)** |
-| **Pushback Verification** | ❌ Manual | ⚠️ Basic | ⚠️ Basic | 🔒 **Timing-Safe HMAC-SHA512** |
-| **Interactive Playground** | ❌ None | ❌ None | ❌ None | 💻 **Next.js 16 Sandbox Included** |
+| Architectural Feature | Manual REST / cURL | Legacy Axios SDKs | **SobinPay (@sobin/pay)** |
+| :--- | :---: | :---: | :---: |
+| **Ergonomics & API Design** | ❌ Complex boilerplate | ⚠️ Single-provider methods | ⭐ **Unified multi-provider hub + standalone clients** |
+| **TypeScript Strictness** | ❌ Untyped JSON responses | ⚠️ Loose types & `any` casts | 🛡️ **100% Strict Type Safety, Zero `any`** |
+| **Payment Status Enums** | ❌ Arbitrary string checks | ❌ String comparisons | ⭐ **Strongly typed `AbaPaymentStatus` Enum** |
+| **Bakong KHQR (EMVCo)** | ❌ Not supported | ❌ Not supported | ⭐ **Full NBC EMVCo Generator, Parser & Deeplinks** |
+| **Zero-Dependency Architecture** | ❌ Manual crypto boilerplate | ❌ Heavy Axios / external deps | ⚡ **Pure Native Web Fetch (Zero heavy dependencies)** |
+| **Pushback Webhook Security** | ❌ Custom implementation | ⚠️ Basic string comparison | 🔒 **Constant-Time HMAC-SHA512 (`timingSafeEqual`)** |
+| **Interactive Developer Portal** | ❌ None | ❌ None | 💻 **Next.js 16 Documentation Portal & Sandbox Included** |
 
 ---
 

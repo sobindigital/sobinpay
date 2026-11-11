@@ -227,7 +227,7 @@ export class PayWayClient {
   }
 
   /**
-   * Alias for createPurchase (compatibility with Joselay's aba-payway SDK)
+   * Alias for createPurchase (backward compatibility alias)
    */
   public createTransaction(options: CreatePurchaseOptions): CreatePurchaseResult {
     return this.createPurchase(options);
