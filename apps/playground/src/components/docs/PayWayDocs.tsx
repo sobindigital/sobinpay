@@ -149,21 +149,21 @@ const purchase = sobin.aba.createPurchase({
           title="Direct Server-to-Server QR"
           showLineNumbers
           code={`const qr = await sobin.aba.createQR({
-                amount: 10.0,
-                currency: "USD",
-                returnUrl: "https://example.com/checkout/success",
-                customer: {
-                  firstName: "Sok",
-                  lastName: "Chan",
-                  phone: "012345678",
-              },
-            });
+amount: 10.0,
+currency: "USD",
+returnUrl: "https://example.com/checkout/success",
+customer: {
+  firstName: "Sok",
+  lastName: "Chan",
+  phone: "012345678",
+},
+});
 
-            if (qr.isSuccess) {
-              console.log("Raw QR String:", qr.qrString);
-              console.log("ABA Mobile App Deeplink:", qr.abapayDeeplink);
-              console.log("QR Image URL:", qr.checkoutQrUrl);
-            }`}
+if (qr.isSuccess) {
+console.log("Raw QR String:", qr.qrString);
+console.log("ABA Mobile App Deeplink:", qr.abapayDeeplink);
+console.log("QR Image URL:", qr.checkoutQrUrl);
+}`}
         />
       </section>
 
@@ -182,16 +182,16 @@ const purchase = sobin.aba.createPurchase({
           showLineNumbers
           code={`import { AbaPaymentStatus } from "@sobindigital/pay";
 
-              const status = await sobin.aba.checkTransaction("sb-n80c75123");
+const status = await sobin.aba.checkTransaction("sb-n80c75123");
 
-              if (status.isApproved) {
-                console.log("Payment completed! Status:", status.status); // AbaPaymentStatus.APPROVED
-                console.log("Amount paid:", status.originalAmount, status.originalCurrency);
-              } else if (status.status === AbaPaymentStatus.PENDING) {
-                console.log("Payment is still awaiting customer scan/authorization.");
-              } else {
-                console.log("Payment was not approved:", status.status);
-              }`}
+if (status.isApproved) {
+  console.log("Payment completed! Status:", status.status); // AbaPaymentStatus.APPROVED
+  console.log("Amount paid:", status.originalAmount, status.originalCurrency);
+} else if (status.status === AbaPaymentStatus.PENDING) {
+  console.log("Payment is still awaiting customer scan/authorization.");
+} else {
+  console.log("Payment was not approved:", status.status);
+}`}
         />
       </section>
 
