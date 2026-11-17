@@ -33,11 +33,13 @@ import {
   ShieldCheck,
   Check,
   Copy,
+  Search,
 } from "lucide-react";
 import {
   TikTokIcon,
   TelegramIcon,
   GithubIcon,
+  NpmIcon,
   SobinPayLogo,
   VerifiedBadgeIcon,
 } from "../components/Icons";
@@ -50,6 +52,18 @@ export default function DocsPortalPage() {
   const [copiedQuickInstall, setCopiedQuickInstall] = useState(false);
   const isProgrammaticScrollRef = React.useRef(false);
   const scrollTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+
+  // Prevent background scroll when mobile drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
 
   // Global keydown for Cmd+K / Ctrl+K
   useEffect(() => {
@@ -148,12 +162,78 @@ export default function DocsPortalPage() {
 
       {/* Mobile & Tablet Drawer Navigation */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 top-16 z-30 bg-[#07090e]/95 backdrop-blur-xl p-6 overflow-y-auto lg:hidden">
-          <Sidebar
-            activeSection={activeSection}
-            onSelectSection={handleNavigateSection}
-            isMobile
-          />
+        <div className="fixed inset-0 top-16 z-30 bg-[#07090e]/95 backdrop-blur-xl p-4 sm:p-6 overflow-y-auto lg:hidden flex flex-col justify-between animate-in fade-in duration-200">
+          <div className="space-y-5">
+            {/* Quick Search Trigger in Drawer */}
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                setSearchOpen(true);
+              }}
+              className="w-full flex items-center justify-between px-3.5 py-2.5 text-xs text-slate-300 bg-slate-900 border border-slate-800 rounded-xl active:bg-slate-800 transition-colors"
+            >
+              <div className="flex items-center gap-2.5">
+                <Search className="w-4 h-4 text-blue-400" />
+                <span className="text-slate-400">Search documentation...</span>
+              </div>
+              <span className="text-[10px] font-mono bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800 text-slate-400">
+                ⌘K
+              </span>
+            </button>
+
+            {/* Sidebar Sections */}
+            <Sidebar
+              activeSection={activeSection}
+              onSelectSection={handleNavigateSection}
+              isMobile
+            />
+          </div>
+
+          {/* Social Links & Info at Drawer Bottom */}
+          <div className="pt-6 mt-6 border-t border-slate-800/80 space-y-3">
+            <div className="grid grid-cols-2 gap-2 text-xs font-medium">
+              <a
+                href="https://t.me/sobindigital"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 active:text-sky-400"
+              >
+                <TelegramIcon className="w-4 h-4 text-sky-400 shrink-0" />
+                <span>Telegram</span>
+              </a>
+              <a
+                href="https://www.tiktok.com/@sobindigital"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 active:text-pink-400"
+              >
+                <TikTokIcon className="w-4 h-4 text-pink-400 shrink-0" />
+                <span>TikTok</span>
+              </a>
+              <a
+                href="https://github.com/sobindigital/sobinpay"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 active:text-white"
+              >
+                <GithubIcon className="w-4 h-4 text-slate-200 shrink-0" />
+                <span>GitHub</span>
+              </a>
+              <a
+                href="https://www.npmjs.com/package/@sobindigital/pay"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 active:text-red-400"
+              >
+                <NpmIcon className="w-4 h-4 text-red-400 shrink-0" />
+                <span>NPM v0.1.1</span>
+              </a>
+            </div>
+
+            <p className="text-[11px] text-slate-500 text-center font-medium">
+              SobinPay by Sobin Digital • MIT License
+            </p>
+          </div>
         </div>
       )}
 
@@ -169,35 +249,37 @@ export default function DocsPortalPage() {
           </div>
 
           {/* Right Main Content */}
-          <main className="col-span-12 lg:col-span-9 py-8 lg:py-10 space-y-16">
+          <main className="col-span-12 lg:col-span-9 py-6 sm:py-8 lg:py-10 space-y-12 sm:space-y-16">
             {/* Hero Quick Banner */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-b from-blue-950/20 via-slate-900/40 to-slate-950/40 border border-slate-800/80 shadow-2xl relative overflow-hidden">
+            <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-b from-blue-950/20 via-slate-900/40 to-slate-950/40 border border-slate-800/80 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
 
               <div className="relative z-10 space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider">
-                  <VerifiedBadgeIcon className="w-3.5 h-3.5 text-blue-400" />
-                  Engineering Standard 10/10 • Sobin Digital
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[11px] sm:text-xs font-semibold uppercase tracking-wide sm:tracking-wider">
+                  <VerifiedBadgeIcon className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                  <span>Engineering Standard 10/10 • Sobin Digital</span>
                 </div>
 
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
+                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
                   Cambodia&apos;s Modern{" "}
                   <span className="bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent">
                     Payment Gateway Engine
                   </span>
                 </h1>
 
-                <p className="text-slate-300 text-sm sm:text-base max-w-2xl leading-relaxed">
+                <p className="text-slate-300 text-xs sm:text-base max-w-2xl leading-relaxed">
                   Type-safe, timing-safe TypeScript monorepo combining ABA PayWay popup/direct checkout and National Bank of Cambodia’s Bakong KHQR EMVCo generator.
                 </p>
 
-                <div className="flex flex-wrap items-center gap-3 pt-2">
-                  <div className="flex items-center bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs font-mono text-slate-300">
-                    <Terminal className="w-3.5 h-3.5 text-blue-400 mr-2" />
-                    <span>npm i @sobindigital/pay</span>
+                <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3 pt-2">
+                  <div className="flex items-center justify-between bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs font-mono text-slate-300">
+                    <div className="flex items-center gap-2 truncate">
+                      <Terminal className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                      <span className="truncate">npm i @sobindigital/pay</span>
+                    </div>
                     <button
                       onClick={copyQuickInstall}
-                      className="ml-3 text-slate-400 hover:text-white transition-colors"
+                      className="ml-3 text-slate-400 hover:text-white transition-colors cursor-pointer"
                       title="Copy install command"
                     >
                       {copiedQuickInstall ? (
@@ -210,7 +292,7 @@ export default function DocsPortalPage() {
 
                   <button
                     onClick={() => handleNavigateSection("interactive-tester")}
-                    className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold shadow-lg shadow-blue-500/20 transition-all cursor-pointer"
+                    className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold shadow-lg shadow-blue-500/20 active:scale-98 transition-all cursor-pointer"
                   >
                     <span>Launch Live Sandbox</span>
                     <ChevronRight className="w-3.5 h-3.5" />
@@ -218,7 +300,7 @@ export default function DocsPortalPage() {
 
                   <button
                     onClick={() => handleNavigateSection("interactive-webhook-debugger")}
-                    className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 text-xs font-semibold transition-all cursor-pointer"
+                    className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 text-xs font-semibold active:scale-98 transition-all cursor-pointer"
                   >
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                     <span>Webhook Debugger</span>

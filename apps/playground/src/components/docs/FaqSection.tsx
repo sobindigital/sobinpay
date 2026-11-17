@@ -162,22 +162,25 @@ export function FaqSection() {
             >
               <button
                 onClick={() => toggle(idx)}
-                className="w-full flex items-center justify-between p-5 text-left font-semibold text-slate-100 hover:text-blue-400 transition-colors gap-4 cursor-pointer"
+                className="w-full flex items-center justify-between p-4 sm:p-5 text-left font-semibold text-slate-100 hover:text-blue-400 transition-colors gap-3 sm:gap-4 cursor-pointer"
                 aria-expanded={isOpen}
               >
-                <div className="flex items-center gap-3">
-                  <Badge
-                    variant={
-                      faq.category === "Security"
-                        ? "emerald"
-                        : faq.category === "Enterprise"
-                        ? "purple"
-                        : "blue"
-                    }
-                  >
-                    {faq.category}
-                  </Badge>
-                  <span className="text-sm sm:text-base text-slate-100 font-medium">{faq.question}</span>
+                <div className="flex items-start sm:items-center gap-2.5 sm:gap-3 flex-1 min-w-0">
+                  <div className="shrink-0 mt-0.5 sm:mt-0">
+                    <Badge
+                      variant={
+                        faq.category === "Security"
+                          ? "emerald"
+                          : faq.category === "Enterprise"
+                          ? "purple"
+                          : "blue"
+                      }
+                      size="sm"
+                    >
+                      {faq.category}
+                    </Badge>
+                  </div>
+                  <span className="text-[13px] sm:text-base text-slate-100 font-medium leading-snug">{faq.question}</span>
                 </div>
                 <ChevronDown
                   className={`w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200 ${
@@ -187,7 +190,7 @@ export function FaqSection() {
               </button>
 
               {isOpen && (
-                <div className="px-5 pb-5 pt-1 border-t border-slate-800/60">
+                <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-2 border-t border-slate-800/60">
                   {faq.answer}
                 </div>
               )}

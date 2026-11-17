@@ -189,7 +189,7 @@ export function KhqrInspector() {
       </div>
 
       {/* Input */}
-      <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 space-y-4">
+      <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-4 sm:p-6 space-y-4">
         <div className="flex items-center justify-between">
           <label className="text-xs font-semibold uppercase tracking-wider text-slate-300">
             Raw Bakong EMVCo String
@@ -236,7 +236,7 @@ export function KhqrInspector() {
       {parseResult && (
         <div className="space-y-6 animate-in fade-in">
           {/* Summary Badges */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4">
             <div className="p-4 rounded-xl bg-slate-900/50 border border-slate-800 space-y-1">
               <span className="text-[11px] font-mono text-slate-400 uppercase">
                 CRC-16 Checksum

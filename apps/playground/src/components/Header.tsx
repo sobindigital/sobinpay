@@ -126,26 +126,36 @@ export function Header({
         </nav>
 
         {/* Right Action Bar (Search + Unified Social Group) */}
-        <div className="flex items-center gap-2.5 shrink-0">
-          {/* Quick Search Bar */}
+        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+          {/* Mobile Search Icon Button (< sm) */}
           <button
             onClick={onOpenSearch}
-            className="flex items-center justify-between gap-3 px-3 py-1.5 w-36 sm:w-44 text-xs text-slate-400 bg-slate-900/90 hover:bg-slate-800/90 border border-slate-800 hover:border-slate-700 rounded-lg transition-all cursor-pointer shadow-sm"
+            className="sm:hidden p-2 text-slate-400 hover:text-white rounded-lg bg-slate-900/90 border border-slate-800 hover:border-slate-700 active:scale-95 transition-all cursor-pointer"
+            title="Search documentation"
+            aria-label="Search documentation"
+          >
+            <Search className="w-4 h-4 text-slate-300" />
+          </button>
+
+          {/* Desktop / Tablet Search Bar (>= sm) */}
+          <button
+            onClick={onOpenSearch}
+            className="hidden sm:flex items-center justify-between gap-3 px-3 py-1.5 w-36 md:w-44 lg:w-48 text-xs text-slate-400 bg-slate-900/90 hover:bg-slate-800/90 border border-slate-800 hover:border-slate-700 rounded-lg transition-all cursor-pointer shadow-sm"
             title="Search documentation (⌘K)"
           >
             <div className="flex items-center gap-2">
               <Search className="w-3.5 h-3.5 text-slate-400" />
               <span className="truncate">Search...</span>
             </div>
-            <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono text-slate-400 bg-slate-950 border border-slate-800 rounded">
+            <kbd className="inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono text-slate-400 bg-slate-950 border border-slate-800 rounded">
               ⌘K
             </kbd>
           </button>
 
-          <div className="hidden sm:block h-4 w-px bg-slate-800/80 mx-0.5" />
+          <div className="hidden md:block h-4 w-px bg-slate-800/80 mx-0.5" />
 
-          {/* Socials & Community Icons (Clean unified monochrome buttons) */}
-          <div className="flex items-center gap-1">
+          {/* Socials & Community Icons (Visible on md+ to avoid mobile congestion) */}
+          <div className="hidden md:flex items-center gap-1">
             {/* Telegram */}
             <a
               href="https://t.me/sobindigital"
@@ -175,7 +185,7 @@ export function Header({
               href="https://www.npmjs.com/package/@sobindigital/pay"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 px-2 py-1 rounded-md text-[11px] font-mono font-medium text-slate-400 hover:text-red-400 hover:bg-red-500/10 transition-colors border border-transparent hover:border-red-500/20"
+              className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md text-[11px] font-mono font-medium text-slate-400 hover:text-red-400 hover:bg-red-500/10 transition-colors border border-transparent hover:border-red-500/20"
               title="View on NPM Registry"
             >
               <NpmIcon className="w-3.5 h-3.5" />
@@ -192,17 +202,17 @@ export function Header({
               title="Star SobinPay on GitHub"
             >
               <GithubIcon className="w-3.5 h-3.5 text-slate-300" />
-              <span className="hidden sm:inline">Star</span>
+              <span>Star</span>
             </a>
           </div>
 
           {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-1.5 text-slate-400 hover:text-slate-100 rounded-lg bg-slate-900 border border-slate-800"
+            className="lg:hidden p-2 text-slate-300 hover:text-white rounded-lg bg-slate-900/90 border border-slate-800 hover:border-slate-700 active:scale-95 transition-all cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500/40"
             aria-label="Toggle navigation"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
         </div>
       </div>

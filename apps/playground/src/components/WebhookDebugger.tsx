@@ -234,7 +234,7 @@ export function WebhookDebugger() {
       {/* Main Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Input Column */}
-        <div className="lg:col-span-6 bg-slate-900/50 border border-slate-800 rounded-2xl p-6 space-y-4">
+        <div className="lg:col-span-6 bg-slate-900/50 border border-slate-800 rounded-2xl p-4 sm:p-6 space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-300">
               Webhook Request Body (JSON)
@@ -301,7 +301,7 @@ export function WebhookDebugger() {
         </div>
 
         {/* Diagnostic Output Column */}
-        <div className="lg:col-span-6 bg-slate-900/50 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
+        <div className="lg:col-span-6 bg-slate-900/50 border border-slate-800 rounded-2xl p-4 sm:p-6 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-300">

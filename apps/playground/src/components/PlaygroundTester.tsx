@@ -331,53 +331,53 @@ export function PlaygroundTester() {
       )}
 
       {/* Mode Selector Tabs */}
-      <div className="flex flex-wrap gap-2 p-1.5 bg-slate-900/70 border border-slate-800 rounded-xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1.5 p-1.5 bg-slate-900/70 border border-slate-800 rounded-xl">
         <button
           onClick={() => setMode("payway-popup")}
-          className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-medium transition-all cursor-pointer ${mode === "payway-popup"
+          className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-all cursor-pointer ${mode === "payway-popup"
             ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
             : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/40"
             }`}
         >
-          <CreditCard className="w-3.5 h-3.5" />
-          ABA PayWay Checkout (Popup/Hosted)
+          <CreditCard className="w-3.5 h-3.5 shrink-0" />
+          <span className="truncate">ABA PayWay Checkout</span>
         </button>
         <button
           onClick={() => setMode("payway-qr")}
-          className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-medium transition-all cursor-pointer ${mode === "payway-qr"
+          className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-all cursor-pointer ${mode === "payway-qr"
             ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
             : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/40"
             }`}
         >
-          <QrCode className="w-3.5 h-3.5" />
-          ABA Direct QR (REST API)
+          <QrCode className="w-3.5 h-3.5 shrink-0" />
+          <span className="truncate">ABA Direct KHQR</span>
         </button>
         <button
           onClick={() => setMode("khqr-individual")}
-          className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-medium transition-all cursor-pointer ${mode === "khqr-individual"
+          className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-all cursor-pointer ${mode === "khqr-individual"
             ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
             : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/40"
             }`}
         >
-          <QrCode className="w-3.5 h-3.5" />
-          Bakong KHQR (Individual)
+          <QrCode className="w-3.5 h-3.5 shrink-0" />
+          <span className="truncate">Bakong KHQR (Individual)</span>
         </button>
         <button
           onClick={() => setMode("khqr-merchant")}
-          className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-medium transition-all cursor-pointer ${mode === "khqr-merchant"
+          className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-all cursor-pointer ${mode === "khqr-merchant"
             ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
             : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/40"
             }`}
         >
-          <QrCode className="w-3.5 h-3.5" />
-          Bakong KHQR (Merchant)
+          <QrCode className="w-3.5 h-3.5 shrink-0" />
+          <span className="truncate">Bakong KHQR (Merchant)</span>
         </button>
       </div>
 
       {/* Main Grid: Controls vs Preview */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
         {/* Controls Column */}
-        <div className="lg:col-span-5 bg-slate-900/50 border border-slate-800 rounded-2xl p-6 space-y-5">
+        <div className="lg:col-span-5 bg-slate-900/50 border border-slate-800 rounded-2xl p-4 sm:p-6 space-y-5">
           <h3 className="text-sm font-semibold text-slate-200 uppercase tracking-wider flex items-center justify-between">
             <span>Transaction Parameters</span>
             <span className="text-[11px] font-mono text-slate-400 lowercase font-normal">
@@ -670,7 +670,7 @@ export function PlaygroundTester() {
         </div>
 
         {/* Display / Output Column */}
-        <div className="lg:col-span-7 bg-slate-900/50 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
+        <div className="lg:col-span-7 bg-slate-900/50 border border-slate-800 rounded-2xl p-4 sm:p-6 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-base font-semibold text-white flex items-center gap-2">

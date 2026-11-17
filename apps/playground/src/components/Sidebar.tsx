@@ -62,10 +62,12 @@ export function Sidebar({
                     <button
                       ref={isActive ? activeBtnRef : null}
                       onClick={() => onSelectSection(item.id)}
-                      className={`relative w-full flex items-center justify-between pl-3.5 pr-2.5 py-1.5 text-xs rounded-lg font-medium transition-all duration-200 ease-out text-left group cursor-pointer ${
+                      className={`relative w-full flex items-center justify-between pl-3.5 pr-2.5 ${
+                        isMobile ? "py-2 text-[13px]" : "py-1.5 text-xs"
+                      } rounded-lg font-medium transition-all duration-200 ease-out text-left group cursor-pointer ${
                         isActive
                           ? "bg-blue-500/10 text-blue-400 font-semibold shadow-sm"
-                          : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/60"
+                          : "text-slate-400 hover:text-slate-200 hover:bg-slate-900/60 active:bg-slate-900"
                       }`}
                     >
                       {/* Smooth vertical active bar */}

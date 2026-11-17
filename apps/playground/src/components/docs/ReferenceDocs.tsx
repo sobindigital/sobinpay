@@ -40,7 +40,7 @@ export function ReferenceDocs() {
           <h3 className="text-base font-semibold text-slate-200">
             AbaPaymentStatus
           </h3>
-          <div className="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden">
+          <div className="bg-slate-900/50 border border-slate-800 rounded-xl overflow-x-auto">
             <table className="w-full text-left text-xs font-mono">
               <thead className="bg-slate-950/80 border-b border-slate-800 text-slate-400">
                 <tr>
@@ -90,7 +90,7 @@ export function ReferenceDocs() {
           <h3 className="text-base font-semibold text-slate-200">
             AbaPaymentOption
           </h3>
-          <div className="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden">
+          <div className="bg-slate-900/50 border border-slate-800 rounded-xl overflow-x-auto">
             <table className="w-full text-left text-xs font-mono">
               <thead className="bg-slate-950/80 border-b border-slate-800 text-slate-400">
                 <tr>
@@ -140,7 +140,7 @@ export function ReferenceDocs() {
           <h3 className="text-base font-semibold text-slate-200">
             AbaStatusCode (Gateway Status Codes)
           </h3>
-          <div className="bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden">
+          <div className="bg-slate-900/50 border border-slate-800 rounded-xl overflow-x-auto">
             <table className="w-full text-left text-xs font-mono">
               <thead className="bg-slate-950/80 border-b border-slate-800 text-slate-400">
                 <tr>
