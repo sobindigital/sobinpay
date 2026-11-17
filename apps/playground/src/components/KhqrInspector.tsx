@@ -291,9 +291,9 @@ export function KhqrInspector() {
           </div>
 
           {/* TLV Breakdown Table */}
-          <div className="bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
-            <div className="px-6 py-4 border-b border-slate-800 flex items-center justify-between">
-              <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
+          <div className="bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden shadow-xl min-w-0 w-full">
+            <div className="px-4 sm:px-6 py-4 border-b border-slate-800 flex items-center justify-between">
+              <h3 className="text-xs sm:text-sm font-semibold text-white uppercase tracking-wider">
                 Parsed Tag-Length-Value (TLV) Data Elements
               </h3>
               <span className="text-xs font-mono text-slate-400">
@@ -301,7 +301,7 @@ export function KhqrInspector() {
               </span>
             </div>
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto min-w-0 w-full">
               <table className="w-full text-left text-xs">
                 <thead className="bg-slate-950/60 border-b border-slate-800 text-slate-400 font-mono uppercase text-[11px]">
                   <tr>

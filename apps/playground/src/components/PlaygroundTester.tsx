@@ -375,9 +375,9 @@ export function PlaygroundTester() {
       </div>
 
       {/* Main Grid: Controls vs Preview */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 min-w-0">
         {/* Controls Column */}
-        <div className="lg:col-span-5 bg-slate-900/50 border border-slate-800 rounded-2xl p-4 sm:p-6 space-y-5">
+        <div className="lg:col-span-5 min-w-0 w-full bg-slate-900/50 border border-slate-800 rounded-2xl p-4 sm:p-6 space-y-5">
           <h3 className="text-sm font-semibold text-slate-200 uppercase tracking-wider flex items-center justify-between">
             <span>Transaction Parameters</span>
             <span className="text-[11px] font-mono text-slate-400 lowercase font-normal">
@@ -670,7 +670,7 @@ export function PlaygroundTester() {
         </div>
 
         {/* Display / Output Column */}
-        <div className="lg:col-span-7 bg-slate-900/50 border border-slate-800 rounded-2xl p-4 sm:p-6 flex flex-col justify-between">
+        <div className="lg:col-span-7 min-w-0 w-full bg-slate-900/50 border border-slate-800 rounded-2xl p-4 sm:p-6 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-base font-semibold text-white flex items-center gap-2">

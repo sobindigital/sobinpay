@@ -144,7 +144,7 @@ export default function DocsPortalPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#07090e] text-slate-100 flex flex-col font-sans selection:bg-blue-600/30 selection:text-white">
+    <div className="min-h-screen bg-[#07090e] text-slate-100 flex flex-col font-sans selection:bg-blue-600/30 selection:text-white w-full max-w-full overflow-x-hidden">
       {/* Top Header */}
       <Header
         onOpenSearch={() => setSearchOpen(true)}
@@ -238,8 +238,8 @@ export default function DocsPortalPage() {
       )}
 
       {/* Main Container */}
-      <div className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+      <div className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 min-w-0">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 min-w-0">
           {/* Left Desktop Sidebar */}
           <div className="hidden lg:block lg:col-span-3 border-r border-slate-800/80">
             <Sidebar
@@ -249,7 +249,7 @@ export default function DocsPortalPage() {
           </div>
 
           {/* Right Main Content */}
-          <main className="col-span-12 lg:col-span-9 py-6 sm:py-8 lg:py-10 space-y-12 sm:space-y-16">
+          <main className="col-span-1 lg:col-span-9 min-w-0 w-full py-6 sm:py-8 lg:py-10 space-y-12 sm:space-y-16">
             {/* Hero Quick Banner */}
             <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-b from-blue-950/20 via-slate-900/40 to-slate-950/40 border border-slate-800/80 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />

@@ -58,12 +58,12 @@ export function CodeBlock({
   };
 
   return (
-    <div className="relative group my-4 rounded-xl border border-slate-800 bg-slate-950/80 overflow-hidden shadow-xl">
+    <div className="relative group my-4 rounded-xl border border-slate-800 bg-slate-950/80 overflow-hidden shadow-xl w-full min-w-0">
       {/* Header Bar */}
       <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/70 border-b border-slate-800/80 text-xs text-slate-400">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 min-w-0">
           {packageTabs ? (
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 overflow-x-auto">
               {(["npm", "pnpm", "yarn", "bun"] as const).map((pm) => (
                 <button
                   key={pm}
@@ -80,15 +80,15 @@ export function CodeBlock({
             </div>
           ) : (
             <>
-              <Terminal className="w-3.5 h-3.5 text-blue-400" />
-              <span className="font-mono text-slate-300">{title || language}</span>
+              <Terminal className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+              <span className="font-mono text-slate-300 truncate">{title || language}</span>
             </>
           )}
         </div>
 
         <button
           onClick={handleCopy}
-          className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-slate-800/60 hover:bg-slate-700/60 border border-slate-700/60 text-slate-300 hover:text-white transition-all text-xs font-mono"
+          className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-slate-800/60 hover:bg-slate-700/60 border border-slate-700/60 text-slate-300 hover:text-white transition-all text-xs font-mono shrink-0 ml-2"
           title="Copy code"
         >
           {copied ? (
@@ -106,10 +106,10 @@ export function CodeBlock({
       </div>
 
       {/* Code Area */}
-      <div className="p-4 overflow-x-auto text-xs sm:text-[13px] font-mono leading-relaxed text-slate-200 selection:bg-blue-600/40">
-        <pre className="flex">
+      <div className="p-4 overflow-x-auto text-xs sm:text-[13px] font-mono leading-relaxed text-slate-200 selection:bg-blue-600/40 w-full min-w-0">
+        <pre className="flex w-full min-w-0">
           {showLineNumbers && (
-            <span className="select-none pr-4 text-slate-600 text-right font-mono border-r border-slate-800/80 mr-4">
+            <span className="select-none pr-4 text-slate-600 text-right font-mono border-r border-slate-800/80 mr-4 shrink-0">
               {currentCode
                 .split("\n")
                 .map((_, i) => (
@@ -117,7 +117,7 @@ export function CodeBlock({
                 ))}
             </span>
           )}
-          <code className="flex-1 whitespace-pre">{currentCode}</code>
+          <code className="flex-1 whitespace-pre min-w-0">{currentCode}</code>
         </pre>
       </div>
     </div>

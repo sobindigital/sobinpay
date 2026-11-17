@@ -232,9 +232,9 @@ export function WebhookDebugger() {
       </div>
 
       {/* Main Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 min-w-0">
         {/* Input Column */}
-        <div className="lg:col-span-6 bg-slate-900/50 border border-slate-800 rounded-2xl p-4 sm:p-6 space-y-4">
+        <div className="lg:col-span-6 min-w-0 w-full bg-slate-900/50 border border-slate-800 rounded-2xl p-4 sm:p-6 space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-300">
               Webhook Request Body (JSON)
@@ -301,7 +301,7 @@ export function WebhookDebugger() {
         </div>
 
         {/* Diagnostic Output Column */}
-        <div className="lg:col-span-6 bg-slate-900/50 border border-slate-800 rounded-2xl p-4 sm:p-6 flex flex-col justify-between">
+        <div className="lg:col-span-6 min-w-0 w-full bg-slate-900/50 border border-slate-800 rounded-2xl p-4 sm:p-6 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-300">
@@ -376,15 +376,15 @@ export function WebhookDebugger() {
                     Step 3: Constant-Time Comparison
                   </span>
                   <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 font-mono text-xs text-slate-300 space-y-1">
-                    <div className="flex justify-between">
-                      <span className="text-slate-500">Provided:</span>
-                      <span className="truncate max-w-[280px]">
+                    <div className="flex justify-between gap-2">
+                      <span className="text-slate-500 shrink-0">Provided:</span>
+                      <span className="truncate max-w-[170px] sm:max-w-[280px]">
                         {verificationResult.receivedSignature || "(none provided)"}
                       </span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-slate-500">Expected:</span>
-                      <span className="truncate max-w-[280px]">
+                    <div className="flex justify-between gap-2">
+                      <span className="text-slate-500 shrink-0">Expected:</span>
+                      <span className="truncate max-w-[170px] sm:max-w-[280px]">
                         {verificationResult.calculatedSignature}
                       </span>
                     </div>
